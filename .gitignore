@@ -1,4 +1,26 @@
 # Logs
+*.DS_Store
+config/master.key
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
+/node_modules
+/yarn-error.log
+bundle.js*
+bundle.js.map
+
+/public/assets
+.byebug_history
 logs
 *.log
 npm-debug.log*
