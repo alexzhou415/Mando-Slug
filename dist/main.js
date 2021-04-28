@@ -25,7 +25,7 @@ eval("const MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/mo
   \*********************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("// const mando = require('./sprites/mandalorian2.png')\n\nconst MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/moving_object.js\");\n\nclass Hero extends MovingObject{\n\n  constructor(options){\n    super(options);\n  }\n\n  draw(ctx) {\n    const heroSprite = new Image();\n    heroSprite.src =\n      \"https://untamed.wild-refuge.net/images/rpgxp/mandalorian2.png\";\n\n    ctx.drawImage(heroSprite, 0, 0, 32, 48, 0, 0, 48, 72);\n    console.log(\"drawing\");\n  }\n\n}\n\nmodule.exports = Hero;\n\n//# sourceURL=webpack:///./src/hero.js?");
+eval("// const mando = require('./sprites/mandalorian2.png')\n\nconst MovingObject = __webpack_require__(/*! ./moving_object */ \"./src/moving_object.js\");\n\nclass Hero extends MovingObject{\n\n  constructor(options){\n    super(options);\n  }\n\n  draw(ctx) {\n    const heroSprite = new Image();\n    heroSprite.src = \"../src/sprites/mandalorian2.png\";\n    heroSprite.onload = () => {ctx.drawImage(heroSprite, 0, 0, 32, 48, 200, 120, 32, 48);}\n    \n    console.log(\"drawing\");\n  }\n\n}\n\nmodule.exports = Hero;\n\n//# sourceURL=webpack:///./src/hero.js?");
 
 /***/ }),
 
@@ -35,7 +35,7 @@ eval("// const mando = require('./sprites/mandalorian2.png')\n\nconst MovingObje
   \**********************/
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("console.log(\"webpack is working\");\n\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\nconst Enemy = __webpack_require__(/*! ./enemy */ \"./src/enemy.js\");\nconst Hero = __webpack_require__(/*! ./hero */ \"./src/hero.js\");\nwindow.MovingObject = MovingObject;\n\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  const canvas = document.getElementById(\"game-canvas\");\n  canvas.width = 900;\n  canvas.height = 600;\n  const ctx = canvas.getContext(\"2d\");\n  const hero = new Hero({ pos: [200, 120], vel: [100, 100] });\n  const enemy = new Enemy({ pos: [600, 120], vel: [100, 100] });\n  hero.draw(ctx);\n  enemy.draw(ctx);\n  window.hero = hero;\n  window.ctx = ctx;\n  window.move = MovingObject.prototype.move;\n  window.draw = MovingObject.prototype.draw;\n});\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("console.log(\"webpack is working\");\n\nconst MovingObject = __webpack_require__(/*! ./moving_object.js */ \"./src/moving_object.js\");\nconst Enemy = __webpack_require__(/*! ./enemy */ \"./src/enemy.js\");\nconst Hero = __webpack_require__(/*! ./hero */ \"./src/hero.js\");\nwindow.MovingObject = MovingObject;\n\ndocument.addEventListener(\"DOMContentLoaded\", function () {\n  const canvas = document.getElementById(\"game-canvas\");\n  canvas.width = 900;\n  canvas.height = 600;\n  const ctx = canvas.getContext(\"2d\");\n  const hero = new Hero({ pos: [200, 120], vel: [100, 100] });\n  const enemy = new Enemy({ pos: [600, 120], vel: [100, 100] });\n  const image = new Image();\n  \n  image.onload = () => { ctx.drawImage(image, 0, 0, 32, 48, 0, 0, 48, 72);}\n  image.src = \"../src/sprites/mandalorian2.png\";\n  hero.draw(ctx);\n  enemy.draw(ctx);\n  window.hero = hero;\n  window.ctx = ctx;\n  window.move = MovingObject.prototype.move;\n  window.draw = MovingObject.prototype.draw;\n});\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
@@ -45,7 +45,7 @@ eval("console.log(\"webpack is working\");\n\nconst MovingObject = __webpack_req
   \******************************/
 /***/ ((module) => {
 
-eval("class MovingObject {\n\n  constructor(options){\n    this.pos = options.pos;\n    this.vel = options.vel;\n    this.radius = 50;\n    this.game = options.game;\n  }\n  \n  \n\n\n  draw(ctx, img, sx, sy, sw, sh, dx, dy, dw, dh) {\n    \n    ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh);\n    // ctx.fillStyle = \"red\";\n    // ctx.beginPath();\n    // ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, true);\n    // ctx.fill();\n  }\n\n  move(){\n    this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];\n  } \n}\n\n// MovingObject.prototype.draw = function \n\n// MovingObject.prototype.move = function \n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
+eval("class MovingObject {\n\n  constructor(options){\n    this.pos = options.pos;\n    this.vel = options.vel;\n    this.radius = 50;\n    this.game = options.game;\n  }\n  \n  \n\n\n  // draw(ctx, img, sx, sy, sw, sh, dx, dy, dw, dh) {\n    \n  //   ctx.drawImage(img, sx, sy, sw, sh, dx, dy, dw, dh)\n  //   ctx.fillStyle = \"red\";\n  //   ctx.beginPath();\n  //   ctx.arc(this.pos[0], this.pos[1], this.radius, 0, 2 * Math.PI, true);\n  //   ctx.fill();\n  // }\n\n  move(){\n    this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];\n  } \n}\n\n// MovingObject.prototype.draw = function \n\n// MovingObject.prototype.move = function \n\nmodule.exports = MovingObject;\n\n//# sourceURL=webpack:///./src/moving_object.js?");
 
 /***/ })
 

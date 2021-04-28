@@ -10,10 +10,9 @@ class Hero extends MovingObject{
 
   draw(ctx) {
     const heroSprite = new Image();
-    heroSprite.src =
-      "https://untamed.wild-refuge.net/images/rpgxp/mandalorian2.png";
-
-    ctx.drawImage(heroSprite, 0, 0, 32, 48, 0, 0, 48, 72);
+    heroSprite.src = "../src/sprites/mandalorian2.png";
+    heroSprite.onload = () => {ctx.drawImage(heroSprite, 0, 0, 32, 48, 200, 120, 32, 48);}
+    
     console.log("drawing");
   }
 

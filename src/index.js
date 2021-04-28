@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const ctx = canvas.getContext("2d");
   const hero = new Hero({ pos: [200, 120], vel: [100, 100] });
   const enemy = new Enemy({ pos: [600, 120], vel: [100, 100] });
+  const image = new Image();
+  
+  image.onload = () => { ctx.drawImage(image, 0, 0, 32, 48, 0, 0, 48, 72);}
+  image.src = "../src/sprites/mandalorian2.png";
   hero.draw(ctx);
   enemy.draw(ctx);
   window.hero = hero;
