@@ -1,9 +1,7 @@
+const Util = require("./util");
 class MovingObject {
 
   constructor(options){
-    this.pos = options.pos;
-    this.vel = options.vel;
-    this.radius = 50;
     this.game = options.game;
   }
   
@@ -20,12 +18,21 @@ class MovingObject {
   // }
 
   move(){
-    this.pos = [this.pos[0] + this.vel[0], this.pos[1] + this.vel[1]];
+    // console.log(this.game.DIM_X);
+    // console.log(Math.min(this.pos[0] + this.vel[0], this.game.DIM_X));
+    this.pos = [Math.min(this.pos[0] + this.vel[0], this.game.DIM_X - this.width), 
+    Math.min(this.pos[1] + this.vel[1], this.game.DIM_Y - this.height)];
+    console.log(this.pos);
   } 
+
+  collideWith(otherObject){
+
+  }
+
+  isCollidedWith(otherObject){
+    const centerDist = Util.dist(this.pos, otherObject.pos);
+    return centerDist < (Math.max(this.height/2, this.width/2) + Math.max(otherObject.height/2, otherObject.width/2));
+  }
 }
-
-// MovingObject.prototype.draw = function 
-
-// MovingObject.prototype.move = function 
 
 module.exports = MovingObject;
