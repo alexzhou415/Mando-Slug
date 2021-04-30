@@ -2,6 +2,96 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Press Start 2P', cursive;
+  background-color: black;
+}
+
+.title-screen{
+  position: absolute;
+  height: 500px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: maroon;
+  
+}
+
+.instructions {
+  width: 600px;
+  height: 150px;
+  background-color: darkslategray;
+  border-radius: 7px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+p {
+  margin: 5px;
+}
+
+.title{
+  font-size: 33px;
+  color: silver;
+}
+
+.title-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  /* border: 1px solid black; */
+  height: 90px;
+
+}
+
+.title-controls button{
+  border-radius: 4px;
+  background-color: white;
+  border: white;
+  height: 30px;
+  cursor: pointer;
+}
+
+
+
+.ingame-ui {
+  position: absolute;
+  height: 500px;
+  width: 800px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.hero-healthbar {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.win-screen {
+  background-color: darkslategray;
+  height: 500px;
+  width: 800px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lose-screen {
+  background-color: maroon;
+  height: 500px;
+  width: 800px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
 }
 
 canvas {

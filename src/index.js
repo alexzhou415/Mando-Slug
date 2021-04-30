@@ -17,9 +17,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const gameView = new GameView(game, ctx);
   // console.log(gameView.game);
-  if (gameView.game) gameView.start();
+
+  const start = document.getElementsByClassName("start-button")[0];
+  const title = document.getElementsByClassName("title-screen")[0];
+  start.addEventListener("click", function () {
+    title.classList.add("hidden");
+    gameView.start();
+  })
+  // if (gameView.game) gameView.start();
   
-  window.ctx = ctx;
-  window.move = MovingObject.prototype.move;
-  window.draw = MovingObject.prototype.draw;
+  const song = document.getElementsByClassName("song")[0];
+  const toggleSong = document.getElementsByClassName("toggle-music")[0];
+  // song.muted = !song.muted;
+  toggleSong.addEventListener("click", function() {
+    // if (song.classList.contains("muted")) song.classList.remove("muted");
+    // else song.classList.add("muted")
+    song.muted = !song.muted;
+    // song.classList.toggle("muted");
+  })
 });

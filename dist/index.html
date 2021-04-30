@@ -4,12 +4,54 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metal Bug</title>
+  <title>Mando Bug</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../src//stylesheets/reset.css">
   <link rel="stylesheet" href="../src/stylesheets/game.css">
   <script type="application/javascript" src="./main.js"></script>
 </head>
 <body>
+
+  <audio class="song" src="../src/sprites/mando-song.mp3" loop autoplay muted></audio>
+  <div class="ingame-ui">
+    <div class="hero-healthbar">
+      <div class="heart"><img src="../src/sprites//heart.png" alt=""></div>
+      <div class="heart"><img src="../src/sprites//heart.png" alt=""></div>
+      <div class="heart"><img src="../src/sprites//heart.png" alt=""></div>
+      <div class="heart"><img src="../src/sprites//heart.png" alt=""></div>
+      <div class="heart"><img src="../src/sprites//heart.png" alt=""></div>
+    </div>
+  </div>
+
+  <div class="win-screen hidden">
+    Congratulations, you have won!
+  </div>
+
+  <div class="lose-screen hidden">
+    You lost all your health, better luck next time!
+  </div>
+  <div class="title-screen">
+    <div class="instructions">
+      <p>
+        Use A/D keys to move and spacebar to shoot. 
+        Avoid enemies and their attacks or you will lose health.
+        Defeat all the enemies to win!
+      </p>
+    </div>
+    <div class="title">
+      Mando Slug
+    </div>
+
+    <div class="title-controls">
+      <button class="start-button">
+        Start
+      </button>
+      <button class="toggle-music">
+        Toggle Music
+      </button>
+    </div>
+  </div>
   <canvas id="game-canvas"></canvas>
 </body>
 </html>
