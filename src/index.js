@@ -19,12 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // console.log(gameView.game);
   if (gameView.game) gameView.start();
   
-  // const hero = new Hero({game: game });
-  // const enemy = new Enemy({game: game});
-  
-  // hero.draw(ctx);
-  // enemy.draw(ctx);
-  // window.hero = hero;
   window.ctx = ctx;
   window.move = MovingObject.prototype.move;
   window.draw = MovingObject.prototype.draw;
