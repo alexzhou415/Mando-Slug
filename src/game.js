@@ -26,7 +26,6 @@ class Game {
       
       if (this.killCount <= 20) {
         let currentEnemies = this.enemies.length;
-        // pos = [this.game.DIM_X - this.width, this.game.DIM_Y - this.height];
         
         for (let i = currentEnemies; i < this.NUM_ENEMIES; i++) {
           if (this.numSpawned % 2 === 0) {
@@ -37,7 +36,6 @@ class Game {
             this.numSpawned++;
           }
           
-          console.log("spawning");
         }
       } else {
         let currentBosses = this.bosses.length;
@@ -75,7 +73,6 @@ class Game {
       throw new Error("unknown type of object");
     }
 
-    console.log(object);
   }
 
 
@@ -91,14 +88,9 @@ class Game {
 
   moveObjects(delta) {
     this.allObjects().forEach((object) => {
-      // console.log(this.hero[0].pos[0]);
-      // console.log(object instanceof Enemy);
-      // if (this.hero[0].pos[0] <= object.pos[0] && object instanceof Enemy) object.dir = "left";
-      // else if (this.hero[0].pos[0] > object.pos[0] && object instanceof Enemy) object.dir = "right"
       object.move(delta);
       if (object instanceof Bullet && (object.pos[0] < 0 || object.pos[0] > this.DIM_X || object.pos[1] <= 0)) this.remove(object)
     });
-    // console.log(this.allObjects());
   }
 
   checkCollisions() {
@@ -107,15 +99,9 @@ class Game {
       for (let j = 0; j < allObjects.length; j++) {
         const obj1 = allObjects[i];
         const obj2 = allObjects[j];
-        // console.log(obj1.constructor.name);
-        // console.log(typeof obj2);
         if (i !== j && obj1.constructor.name !== obj2.constructor.name) {
-          // console.log(obj1);
-          // console.log(obj2);
           if (obj1.isCollidedWith(obj2)) {
-            // console.log(obj1);
-            // console.log(obj2);
-            // console.log("hit");
+
             const collision = obj1.collideWith(obj2);
             if (collision) return;
           }
@@ -126,7 +112,6 @@ class Game {
 
   handleObjectFrame() {
     this.allObjects().forEach((object) => {
-      // console.log(object.frameX);
       if (object.frameX < 3 && object.moving) object.frameX += 1;
       else object.frameX = 0;
     });
@@ -156,7 +141,6 @@ class Game {
     this.handleObjectFrame();
     this.addEnemies();
     
-    // console.log(this.allObjects());
   }
 }
 

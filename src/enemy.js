@@ -16,12 +16,6 @@ class Enemy extends MovingObject {
   }
 
   draw(ctx) {
-    //   const enemySprite = new Image();
-
-    //   enemySprite.onload = () => {
-    //   ctx.drawImage(enemySprite, 40 * this.frameX, 56 * this.frameY, 40, 56, this.pos[0], this.pos[1], this.width, this.height);
-    //  };
-    //   enemySprite.src = "../src/sprites/titan.png";
     ctx.drawImage(
       this.enemySprite,
       40 * this.frameX,
@@ -37,7 +31,7 @@ class Enemy extends MovingObject {
 
   isCollidedWith(otherObject) {
     let centerDist;
-    //fix hitbox
+
     if (otherObject instanceof Bullet)
       centerDist = Util.dist(
         [this.pos[0] + this.width / 2, this.pos[1] + this.height / 2],
@@ -45,20 +39,16 @@ class Enemy extends MovingObject {
       );
     else centerDist = Util.dist(this.pos, otherObject.pos);
     return centerDist < this.width / 2 + otherObject.width / 2;
-    // return centerDist < (Math.min(this.height/2, this.width/2) + Math.min(otherObject.height/2, otherObject.width/2));
   }
 
   collideWith(otherObject) {
     if (otherObject instanceof Hero) {
-      console.log("collision");
       otherObject.loseHealth();
-      console.log(otherObject.health);
+      this.remove();
       return otherObject.health;
     } else if (otherObject instanceof Bullet) {
-      console.log("hit");
       this.remove();
       this.game.killCount++;
-      console.log(this.game.killCount);
       otherObject.remove();
       return true;
     }

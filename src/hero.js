@@ -31,11 +31,6 @@ class Hero extends MovingObject{
   }
 
   draw(ctx) {
-    // const heroSprite = new Image();
-    
-    // heroSprite.onload = () => {ctx.drawImage(heroSprite, 32 * this.frameX, 48 * this.frameY, 32, 48, this.pos[0], this.pos[1], this.width, this.height);}
-    // heroSprite.src = "../src/sprites/mandalorian2.png";
-    // console.log("drawing");
     ctx.drawImage(
       this.heroSprite,
       32 * this.frameX,
@@ -91,19 +86,14 @@ class Hero extends MovingObject{
     if (this.health <= 0) {
       this.alive = false;
       this.game.lost = true;
-      console.log(this.game.lost);
     }
   }
 
   shoot(){
     const bullet = new Bullet({game: this.game, pos: [this.pos[0] + this.width/3, this.pos[1] + this.height/2], dir: this.dir, up: this.up})
     this.game.addBullet(bullet);
-    // console.log(bullet.dir);
+
   }
-
-  // move(){
-
-  // }
 }
 
 module.exports = Hero;

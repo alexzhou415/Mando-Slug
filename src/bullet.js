@@ -11,23 +11,17 @@ class Bullet extends MovingObject {
   }
 
   move(){
-    // console.log(this.dir);
+    
 
     if (this.up) this.pos = [this.pos[0], this.pos[1] - this.vel];
     else{
       switch (this.dir) {
         case "right":
           this.pos = [this.pos[0] + this.vel, this.pos[1]];
-          // console.log(this.dir);
           break;
         case "left":
           this.pos = [this.pos[0] - this.vel, this.pos[1]];
-          // console.log(this.dir);
           break;
-        // case "up":
-        //   this.pos = [this.pos[0], this.pos[1] - this.vel];
-        //   console.log(this.dir);
-        //   break;
         default:
       }
     }

@@ -36,12 +36,10 @@ class Bahamut extends Enemy {
 
   collideWith(otherObject) {
     if (otherObject instanceof Hero) {
-      // console.log("collision");
+ 
       otherObject.loseHealth();
       return true;
     } else if (otherObject instanceof Bullet) {
-      console.log("hit");
-      console.log(this.health);
       this.loseHealth();
       if (!this.alive) {
         this.remove();
