@@ -2,6 +2,7 @@ const Hero = require("./hero");
 const Enemy = require("./enemy");
 const Bullet = require("./bullet");
 const Titan = require("./titan");
+const Phoenix = require("./phoenix");
 const Bahamut = require("./bahamut");
 class Game {
   constructor() {
