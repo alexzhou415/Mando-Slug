@@ -25,12 +25,17 @@ class Game {
   addEnemies() {
     if (!this.won && !this.lost){
       
-      if (this.killCount <= 20) {
+      if (this.killCount <= 40) {
         let currentEnemies = this.enemies.length;
         
         for (let i = currentEnemies; i < this.NUM_ENEMIES; i++) {
           if (this.numSpawned % 2 === 0) {
-            this.enemies.push(new Titan({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 48, this.DIM_Y - 72] }));
+            this.enemies.push(new Phoenix({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 96, 0] }));
+            // this.enemies.push(new Titan({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 48, this.DIM_Y - 72] }));
+            this.numSpawned++;
+            console.log(i);
+          } else if (this.numSpawned % 3 === 0) {
+            this.enemies.push(new Phoenix({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 96, 0] }));
             this.numSpawned++;
           } else {
             this.enemies.push(new Titan({ game: this, frameY: 2, dir: 'right', pos: [0, this.DIM_Y - 72] }));
@@ -65,6 +70,8 @@ class Game {
     if (object instanceof Bullet) {
       this.bullets.splice(this.bullets.indexOf(object), 1);
     } else if (object instanceof Titan) {
+      this.enemies.splice(this.enemies.indexOf(object), 1);
+    } else if (object instanceof Phoenix) {
       this.enemies.splice(this.enemies.indexOf(object), 1);
     } else if (object instanceof Bahamut) {
       this.bosses.splice(this.bosses.indexOf(object), 1);

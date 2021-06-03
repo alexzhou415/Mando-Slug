@@ -9,17 +9,17 @@ class Phoenix extends Enemy {
     this.vel = 10;
     this.dir = options.dir;
     this.frameY = options.frameY;
-    this.titanSprite = new Image();
-    this.titanSprite.src = "../src/sprites/phoenix.png";
+    this.phoenixSprite = new Image();
+    this.phoenixSprite.src = "../src/sprites/phoenix.png";
   }
 
   draw(ctx) {
     ctx.drawImage(
-      this.titanSprite,
-      40 * this.frameX,
-      56 * this.frameY,
-      40,
-      56,
+      this.phoenixSprite,
+      96 * this.frameX,
+      96 * this.frameY,
+      96,
+      96,
       this.pos[0],
       this.pos[1],
       this.width,
