@@ -3,6 +3,7 @@ const Enemy = require("./enemy");
 const Bullet = require("./bullet");
 const Titan = require("./titan");
 const Phoenix = require("./phoenix");
+const PhoenixBlast = require("./phoenix_blast");
 const Bahamut = require("./bahamut");
 class Game {
   constructor() {
@@ -12,6 +13,7 @@ class Game {
     this.hero = [];
     this.bosses = [];
     this.bullets = [];
+    this.phoenix_blasts = []
     this.DIM_X = 800;
     this.DIM_Y = 500;
     this.NUM_ENEMIES = 3;
@@ -33,7 +35,7 @@ class Game {
             this.enemies.push(new Phoenix({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 96, 0] }));
             // this.enemies.push(new Titan({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 48, this.DIM_Y - 72] }));
             this.numSpawned++;
-            console.log(i);
+            // console.log(i);
           } else if (this.numSpawned % 3 === 0) {
             this.enemies.push(new Phoenix({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 96, 0] }));
             this.numSpawned++;
@@ -66,6 +68,10 @@ class Game {
     
   }
 
+  addPhoenixBlast (blast) {
+    this.phoenix_blasts.push(blast);
+  }
+
   remove(object) {
     if (object instanceof Bullet) {
       this.bullets.splice(this.bullets.indexOf(object), 1);
@@ -73,6 +79,8 @@ class Game {
       this.enemies.splice(this.enemies.indexOf(object), 1);
     } else if (object instanceof Phoenix) {
       this.enemies.splice(this.enemies.indexOf(object), 1);
+    } else if (object instanceof PhoenixBlast) {
+      this.phoenix_blasts.splice(this.phoenix_blasts.indexOf(object), 1);
     } else if (object instanceof Bahamut) {
       this.bosses.splice(this.bosses.indexOf(object), 1);
     } else if (object instanceof Hero) {
@@ -98,6 +106,7 @@ class Game {
     this.allObjects().forEach((object) => {
       object.move(delta);
       if (object instanceof Bullet && (object.pos[0] < 0 || object.pos[0] > this.DIM_X || object.pos[1] <= 0)) this.remove(object)
+      if (object instanceof PhoenixBlast && object.pos[1] > this.DIM_Y) this.remove(object);
     });
   }
 
