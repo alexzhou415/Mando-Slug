@@ -1,4 +1,5 @@
 const Enemy = require("./enemy");
+const PhoenixBlast = require("./phoenix_blast");
 
 class Phoenix extends Enemy {
   constructor(options) {
@@ -25,6 +26,11 @@ class Phoenix extends Enemy {
       this.width,
       this.height
     );
+  }
+
+  shoot() {
+    const blast = new PhoenixBlast({game: this.game, pos: [this.pos[0] + this.width/2, this.pos[1] + this.height/2]})
+    this.game.addBlast(blast);
   }
 }
 

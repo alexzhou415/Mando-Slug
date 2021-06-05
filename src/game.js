@@ -13,7 +13,7 @@ class Game {
     this.hero = [];
     this.bosses = [];
     this.bullets = [];
-    this.phoenix_blasts = []
+    this.blasts = []
     this.DIM_X = 800;
     this.DIM_Y = 500;
     this.NUM_ENEMIES = 3;
@@ -68,8 +68,8 @@ class Game {
     
   }
 
-  addPhoenixBlast (blast) {
-    this.phoenix_blasts.push(blast);
+  addBlast (blast) {
+    this.blasts.push(blast);
   }
 
   remove(object) {
@@ -80,7 +80,7 @@ class Game {
     } else if (object instanceof Phoenix) {
       this.enemies.splice(this.enemies.indexOf(object), 1);
     } else if (object instanceof PhoenixBlast) {
-      this.phoenix_blasts.splice(this.phoenix_blasts.indexOf(object), 1);
+      this.blasts.splice(this.blasts.indexOf(object), 1);
     } else if (object instanceof Bahamut) {
       this.bosses.splice(this.bosses.indexOf(object), 1);
     } else if (object instanceof Hero) {
@@ -106,7 +106,7 @@ class Game {
     this.allObjects().forEach((object) => {
       object.move(delta);
       if (object instanceof Bullet && (object.pos[0] < 0 || object.pos[0] > this.DIM_X || object.pos[1] <= 0)) this.remove(object)
-      if (object instanceof PhoenixBlast && object.pos[1] > this.DIM_Y) this.remove(object);
+      if (object instanceof PhoenixBlast && object.pos[1] >= this.DIM_Y) this.remove(object);
     });
   }
 
