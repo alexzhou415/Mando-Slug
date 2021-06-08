@@ -12,7 +12,7 @@ class PhoenixBlast extends MovingObject {
 
   move() {
     this.pos = [this.pos[0], this.pos[1] + this.vel];
-    console.log("blasting");
+    
     // if (this.up) this.pos = [this.pos[0], this.pos[1] - this.vel];
     // else {
     //   switch (this.dir) {

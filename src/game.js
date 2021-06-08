@@ -96,7 +96,7 @@ class Game {
 
 
   allObjects() {
-    return [].concat(this.hero, this.enemies, this.bosses, this.bullets);
+    return [].concat(this.hero, this.enemies, this.bosses, this.bullets, this.blasts);
   }
 
   draw(ctx) {
