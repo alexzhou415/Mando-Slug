@@ -5,8 +5,8 @@ class PhoenixBlast extends MovingObject {
     super(options);
     this.pos = options.pos;
     // this.dir = options.dir;
-    this.vel = 60;
-    this.width = 6;
+    this.vel = 10;
+    this.width = 20;
     this.up = options.up;
   }
 

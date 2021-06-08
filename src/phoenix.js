@@ -29,7 +29,7 @@ class Phoenix extends Enemy {
   }
 
   shoot() {
-    const blast = new PhoenixBlast({game: this.game, pos: [this.pos[0] + this.width/2, this.pos[1] + this.height/2]})
+    const blast = new PhoenixBlast({game: this.game, pos: [this.pos[0] + this.width/2, this.pos[1] + this.height]})
     // setInterval(this.game.addBlast(blast), 5000);
     console.log("blasting");
     this.game.addBlast(blast);
