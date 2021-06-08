@@ -40,7 +40,7 @@ class Game {
             this.enemies.push(new Phoenix({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 96, 0] }));
             // setInterval(this.enemies[this.enemies.length-1].shoot(), 5000);
             // console.log(this.enemies[this.enemies.length - 1]);
-            this.enemies[this.enemies.length - 1].shoot();
+            // this.enemies[this.enemies.length - 1].shoot();
             this.numSpawned++;
           } else {
             this.enemies.push(new Titan({ game: this, frameY: 2, dir: 'right', pos: [0, this.DIM_Y - 72] }));
@@ -110,7 +110,7 @@ class Game {
       object.move(delta);
       if (object instanceof Bullet && (object.pos[0] < 0 || object.pos[0] > this.DIM_X || object.pos[1] <= 0)) this.remove(object)
       if (object instanceof PhoenixBlast && object.pos[1] >= this.DIM_Y) this.remove(object);
-      if (object instanceof Phoenix) object.shoot();
+      if (object instanceof Phoenix && object.pos[0] > this.hero[0].pos[0]) object.shoot();
     });
   }
 
