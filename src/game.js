@@ -112,8 +112,15 @@ class Game {
       if (object instanceof PhoenixBlast && object.pos[1] >= this.DIM_Y) this.remove(object);
       if (object instanceof Phoenix) {
               if (object.pos[0] > this.hero[0].pos[0] - 5 && object.pos[0] < this.hero[0].pos[0] + 5) object.shoot();
-              if (object.pos[0] < 10) object.dir = "right";
-              else if (object.pos[0] > this.DIM_X - 100) object.dir = "left";
+              if (object.pos[0] < 10) {
+                object.dir = "right";
+                object.frameY = 2;
+              }
+              
+              else if (object.pos[0] > this.DIM_X - 100) {
+                object.dir = "left";
+                object.frameY = 1;
+              } 
       }
     });
   }
