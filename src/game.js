@@ -111,15 +111,20 @@ class Game {
       if (object instanceof Bullet && (object.pos[0] < 0 || object.pos[0] > this.DIM_X || object.pos[1] <= 0)) this.remove(object)
       if (object instanceof PhoenixBlast && object.pos[1] >= this.DIM_Y) this.remove(object);
       if (object instanceof Phoenix) {
-              if (object.pos[0] > this.hero[0].pos[0] - 5 && object.pos[0] < this.hero[0].pos[0] + 5) object.shoot();
+              if (object.pos[0] > this.hero[0].pos[0] - 5 && object.pos[0] < this.hero[0].pos[0] + 5 && object.ready) {
+                object.shoot();
+                object.ready = false;
+              }
               if (object.pos[0] < 10) {
                 object.dir = "right";
                 object.frameY = 2;
+                object.ready = true;
               }
               
               else if (object.pos[0] > this.DIM_X - 100) {
                 object.dir = "left";
                 object.frameY = 1;
+                object.ready = true;
               } 
       }
     });

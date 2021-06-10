@@ -10,6 +10,7 @@ class Phoenix extends Enemy {
     this.vel = 10;
     this.dir = options.dir;
     this.frameY = options.frameY;
+    this.ready = true;
     this.phoenixSprite = new Image();
     this.phoenixSprite.src = "../src/sprites/phoenix.png";
   }
