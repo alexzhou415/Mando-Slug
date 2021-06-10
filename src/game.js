@@ -110,7 +110,7 @@ class Game {
       object.move(delta);
       if (object instanceof Bullet && (object.pos[0] < 0 || object.pos[0] > this.DIM_X || object.pos[1] <= 0)) this.remove(object)
       if (object instanceof PhoenixBlast && object.pos[1] >= this.DIM_Y) this.remove(object);
-      if (object instanceof Phoenix && object.pos[0] > this.hero[0].pos[0]) object.shoot();
+      if (object instanceof Phoenix && object.pos[0] > this.hero[0].pos[0] - 5 && object.pos[0] < this.hero[0].pos[0] + 5) object.shoot();
     });
   }
 
