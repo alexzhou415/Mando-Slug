@@ -36,7 +36,8 @@ class Game {
             this.enemies.push(new Titan({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 48, this.DIM_Y - 72] }));
             this.numSpawned++;
             // console.log(i);
-          } else if (this.numSpawned % 3 === 0) {
+          } 
+          if (this.numSpawned % 5 === 0) {
             this.enemies.push(new Phoenix({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 96, 0] }));
             // setInterval(this.enemies[this.enemies.length-1].shoot(), 5000);
             // console.log(this.enemies[this.enemies.length - 1]);
