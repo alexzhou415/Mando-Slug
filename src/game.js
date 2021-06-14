@@ -51,7 +51,7 @@ class Game {
         }
       } else {
         let currentBosses = this.bosses.length;
-        this.enemies = [];
+        // this.enemies = [];
         for (let i = currentBosses; i < this.NUM_BOSSES; i++){
           this.bosses.push(new Bahamut({ game: this }));
         }

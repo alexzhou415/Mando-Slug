@@ -10,6 +10,8 @@ class Bahamut extends Enemy {
     this.alive = true;
     this.width = 96 * 1.5;
     this.height = 96 * 1.5;
+    this.grounded = true;
+    this.heroPos = [];
     this.pos = [this.game.DIM_X - this.width, this.game.DIM_Y - this.height];
     this.bahamutSprite = new Image();
     this.bahamutSprite.src = "../src/sprites/bahamut.png";
@@ -29,6 +31,20 @@ class Bahamut extends Enemy {
     );
   }
 
+  move(delta) {
+    let dirX = 1;
+    let dirY = -1;
+    if (this.dir === "left") dirX = -1;
+    const divider = 1000 / 7;
+    const velX = this.vel * (delta / divider);
+    const destX = this.pos[0] + velX * dir;
+    const destY = this.pos[1] + velX * dir;
+
+    if (dest <= this.game.DIM_X - this.width && dest >= 0) {
+      this.pos[0] = this.pos[0] + velX * dir;
+    }
+  }
+
   loseHealth() {
     this.health -= 1;
     if (this.health <= 0) this.alive = false;
@@ -36,7 +52,6 @@ class Bahamut extends Enemy {
 
   collideWith(otherObject) {
     if (otherObject instanceof Hero) {
- 
       otherObject.loseHealth();
       return true;
     } else if (otherObject instanceof Bullet) {
