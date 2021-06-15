@@ -48,18 +48,26 @@ class Bahamut extends Enemy {
     const destX = this.pos[0] + velX * dirX;
     // const destY = this.pos[1] + velX * dirY;
 
-    if (destX <= this.game.DIM_X - this.width && destX >= 0 && destX) {
+    if (destX <= this.game.DIM_X - this.width && destX >= 0 ) {
+      if (destX > )
       this.pos[0] = this.pos[0] + velX * dirX;
+
     }
 
     if ((this.pos[0] - this.heroPos[0] > -50 || this.pos[0] - this.heroPos[0] < 50) && this.falling) {
-      this.pos[1] = this.pos[1] + velX * dirY;
-    }
+      if (this.pos[1] + velX * dirY >= this.game.DIM_Y - this.height) {
+        this.pos[1] = this.game.DIM_Y - this.height;
+        this.falling = false;
+        this.grounded = true;
+      } 
+      else this.pos[1] = this.pos[1] + velX * dirY;
+      
+    } 
 
-    if (this.pos[1] >= this.game.DIM_Y - this.height) {
-      this.grounded = true;
-      this.falling = false;
-    }
+    // if (this.pos[1] >= this.game.DIM_Y - this.height) {
+    //   this.grounded = true;
+    //   this.falling = false;
+    // }
   }
 
   loseHealth() {
