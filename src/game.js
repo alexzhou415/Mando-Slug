@@ -27,7 +27,7 @@ class Game {
   addEnemies() {
     if (!this.won && !this.lost){
       
-      if (this.killCount <= 40) {
+      if (this.killCount <= 6) {
         let currentEnemies = this.enemies.length;
         
         for (let i = currentEnemies; i < this.NUM_ENEMIES; i++) {
