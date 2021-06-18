@@ -12,7 +12,7 @@ class Bahamut extends Enemy {
     this.height = 96 * 1.5;
     this.grounded = true;
     this.falling = false;
-    this.heroPos = [];
+    this.heroPos = 0;
     this.pos = [this.game.DIM_X - this.width, this.game.DIM_Y - this.height];
     this.bahamutSprite = new Image();
     this.bahamutSprite.src = "../src/sprites/bahamut.png";
@@ -34,13 +34,14 @@ class Bahamut extends Enemy {
 
   move(delta) {
     if (this.grounded) {
-      this.heroPos = this.game.hero[0].pos;
+      this.heroPos = this.game.hero.pos;
       // console.log(this.heroPos + this.pos + this.game.hero.pos);
-      if (this.pos[0] - this.heroPos[0] > 0) this.dir = "left";
+      if (this.pos[0] - this.heroPos > 0) this.dir = "left";
       else this.dir = "right";
       this.grounded = false;
     }
     // let dirX = 1;
+    else {
     let dirY = -1;
     if (this.falling) dirY = 1;
     let dirX;
@@ -50,17 +51,23 @@ class Bahamut extends Enemy {
     const velX = this.vel * (delta / divider);
     const destX = this.pos[0] + velX * dirX;
     // const destY = this.pos[1] + velX * dirY;
-
+    // console.log();
+    // console.log(this.grounded);
+    // console.log("adsfsas");
+    console.log(destX);
+    console.log(this.pos[0]);
+    console.log(velX);
     if (destX <= this.game.DIM_X - this.width && destX >= 0 ) {
-      if (this.pos[0] + 50 >= this.heroPos[0] && this.pos[0] - 50 <= this.heroPos[0]) {
-        this.pos[0] = this.heroPos[0] - 48;
+      if (this.pos[0] + 50 >= this.heroPos[0] && this.pos[0] - 50 <= this.heroPos ){
+        this.pos[0] = this.heroPos - 48;
         this.falling = true;
       }
       
       else this.pos[0] = this.pos[0] + velX * dirX;
+      console.log(destX);
     }
 
-    if ((this.pos[0] - this.heroPos[0] >= -50 || this.pos[0] - this.heroPos[0] <= 50) && this.falling) {
+    if ((this.pos[0] - this.heroPos >= -50 || this.pos[0] - this.heroPos <= 50) && this.falling) {
 
       // this.pos[1] = this.pos[1] + velX * dirY;
       if (this.pos[1] + velX * dirY >= this.game.DIM_Y - this.height) {
@@ -79,6 +86,8 @@ class Bahamut extends Enemy {
     //   this.falling = false;
     // }
   }
+
+}
 
   loseHealth() {
     this.health -= 1;
