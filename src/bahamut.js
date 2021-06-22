@@ -6,7 +6,7 @@ class Bahamut extends Enemy {
   constructor(options) {
     super(options);
     this.vel = 23;
-    this.health = 15;
+    this.health = 40;
     this.alive = true;
     this.width = 96 * 1.5;
     this.height = 96 * 1.5;
