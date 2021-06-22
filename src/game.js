@@ -127,6 +127,17 @@ class Game {
                 object.frameY = 1;
                 object.ready = true;
               } 
+      } 
+      if (object instanceof Bahamut) {
+        if (object.pos[0] < 10) {
+          object.dir = "right";
+          object.frameY = 2;
+
+        } else if (object.pos[0] > this.DIM_X - 100) {
+          object.dir = "left";
+          object.frameY = 1;
+
+        } 
       }
     });
   }
