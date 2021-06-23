@@ -27,7 +27,8 @@ class Game {
   addEnemies() {
     if (!this.won && !this.lost){
       
-      if (this.killCount <= 40) {
+      if (this.killCount <= -40) {
+        console.log(this.killCount);
         let currentEnemies = this.enemies.length;
         
         for (let i = currentEnemies; i < this.NUM_ENEMIES; i++) {
@@ -129,12 +130,12 @@ class Game {
               } 
       } 
       if (object instanceof Bahamut) {
-        if (object.pos[0] < 10) {
-          object.dir = "right";
+        if (object.dir === "right") {
+          // object.dir = "right";
           object.frameY = 2;
 
-        } else if (object.pos[0] > this.DIM_X - 100) {
-          object.dir = "left";
+        } else if (object.dir === "left") {
+          // object.dir = "left";
           object.frameY = 1;
 
         } 
