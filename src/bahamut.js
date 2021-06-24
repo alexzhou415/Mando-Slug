@@ -14,7 +14,7 @@ class Bahamut extends Enemy {
     this.falling = false;
     this.dmg = false;
     this.heroPos = 0;
-    this.pos = [this.game.DIM_X - this.width, this.game.DIM_Y - this.height];
+    this.pos = [this.game.DIM_X - this.width + 1, this.game.DIM_Y - this.height];
     this.bahamutSprite = new Image();
     this.bahamutSprite.src = "../src/sprites/bahamut.png";
   }
