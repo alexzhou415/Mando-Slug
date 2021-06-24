@@ -5,7 +5,7 @@ const Bullet = require("./bullet");
 class Bahamut extends Enemy {
   constructor(options) {
     super(options);
-    this.vel = 23;
+    this.vel = 18;
     this.health = 40;
     this.alive = true;
     this.width = 96 * 1.5;
