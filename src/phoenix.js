@@ -7,7 +7,7 @@ class Phoenix extends Enemy {
     this.width = 48;
     this.height = 72;
     this.pos = options.pos;
-    this.vel = 10;
+    this.vel = 9;
     this.dir = options.dir;
     this.frameY = options.frameY;
     this.ready = true;
