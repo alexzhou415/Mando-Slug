@@ -27,7 +27,7 @@ class Game {
   addEnemies() {
     if (!this.won && !this.lost){
       
-      if (this.killCount <= 40) {
+      if (this.killCount <= -40) {
         console.log(this.killCount);
         let currentEnemies = this.enemies.length;
         
@@ -162,8 +162,16 @@ class Game {
 
   handleObjectFrame() {
     this.allObjects().forEach((object) => {
+      
+      if (object instanceof Bahamut) {
+        if (object.falling) return;
+      }
+
       if (object.frameX < 3 && object.moving) object.frameX += 1;
       else object.frameX = 0;
+      // if (object.frameX < 3 && object.moving) object.frameX += 1;
+      // else object.frameX = 0;
+      
     });
   }
 
