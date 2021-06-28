@@ -61,16 +61,18 @@ class Bahamut extends Enemy {
     // console.log(destX);
     // console.log(this.game.DIM_X - this.width);
     // console.log(this.game.DIM_X)
-    console.log(this.pos[0]);
-    console.log(this.heroPos);
+    // console.log(this.pos[0]);
+    // console.log(this.heroPos);
     // console.log(this.dir);
     // console.log(velX);
     // console.log(this.falling);
     if (destX <= this.game.DIM_X - this.width && destX >= 0 ) {
       if (this.heroPos - this.pos[0] >= -50 && this.heroPos - this.pos[0] <= 50 ){
-        this.pos[0] = this.heroPos - 48;
+        if (this.heroPos <= this.game.DIM_X / 2) this.pos[0] = this.heroPos;
+        else this.pos[0] = this.heroPos - 96;
+        // this.pos[0] = this.heroPos - 48;
         this.falling = true;
-        console.log("spgaht4ti");
+        // console.log("spgaht4ti");
       }
       
       else this.pos[0] = this.pos[0] + velX * dirX;
