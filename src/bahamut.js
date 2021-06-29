@@ -40,7 +40,11 @@ class Bahamut extends Enemy {
       // console.log(this.game)
       // console.log(this.pos[0]);
       // console.log(this.heroPos);
-      if (this.pos[0] - this.heroPos > 0) this.dir = "left";
+      if (this.pos[0] >= this.game.DIM_X - 144 && this.dir === "right") {
+        this.dir = "left";
+        // console.log("poop");
+      }
+      else if (this.pos[0] - this.heroPos > 0) this.dir = "left";
       else if (this.pos[0] - this.heroPos <= 0) this.dir = "right";
       this.grounded = false;
     }
@@ -62,13 +66,14 @@ class Bahamut extends Enemy {
     // console.log(this.game.DIM_X - this.width);
     // console.log(this.game.DIM_X)
     // console.log(this.pos[0]);
+    // console.log("heropos");
     // console.log(this.heroPos);
     // console.log(this.dir);
     // console.log(velX);
     // console.log(this.falling);
     if (destX <= this.game.DIM_X - this.width && destX >= 0 ) {
-      if (this.heroPos - this.pos[0] >= -50 && this.heroPos - this.pos[0] <= 50 ){
-        if (this.heroPos <= this.game.DIM_X / 2) this.pos[0] = this.heroPos;
+      if ((this.heroPos - this.pos[0] >= -50 && this.heroPos - this.pos[0] <= 50) || this.falling){
+        if (this.heroPos < this.game.DIM_X - 96 ) this.pos[0] = this.heroPos;
         else this.pos[0] = this.heroPos - 96;
         // this.pos[0] = this.heroPos - 48;
         this.falling = true;
@@ -79,7 +84,7 @@ class Bahamut extends Enemy {
       console.log(destX);
     }
 
-    if ((this.pos[0] - this.heroPos >= -50 && this.pos[0] - this.heroPos <= 50) && this.falling) {
+    if (this.falling) {
 
       // this.pos[1] = this.pos[1] + velX * dirY;
       if (this.pos[1] + velX * dirY >= this.game.DIM_Y - this.height) {
