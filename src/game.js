@@ -27,7 +27,7 @@ class Game {
   addEnemies() {
     if (!this.won && !this.lost){
       
-      if (this.killCount <= -40) {
+      if (this.killCount <= 40) {
         console.log(this.killCount);
         let currentEnemies = this.enemies.length;
         
