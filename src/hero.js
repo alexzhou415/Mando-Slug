@@ -1,4 +1,3 @@
-// const mando = require('../src/sprites/mandalorian2.png')
 
 const MovingObject = require("./moving_object");
 const Bullet = require("./bullet");
