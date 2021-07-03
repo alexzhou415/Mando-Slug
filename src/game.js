@@ -16,7 +16,7 @@ class Game {
     this.blasts = []
     this.DIM_X = 800;
     this.DIM_Y = 500;
-    this.NUM_ENEMIES = 4;
+    this.NUM_ENEMIES = 3;
     this.NUM_BOSSES = 1;
     this.background = new Image();
     this.background.src = "./src/sprites/space-game-background.jpeg";
@@ -34,7 +34,7 @@ class Game {
         for (let i = currentEnemies; i < this.NUM_ENEMIES; i++) {
           if (this.numSpawned % 2 === 0) {
             // this.enemies.push(new Phoenix({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 96, 0] }));
-            this.enemies.push(new Titan({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 48, this.DIM_Y - 72] }));
+            this.enemies.push(new Titan({ game: this, frameY: 1, dir: 'left', pos: [this.DIM_X - 80, this.DIM_Y - 80] }));
             this.numSpawned++;
             // console.log(i);
           } 
