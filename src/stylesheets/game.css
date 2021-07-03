@@ -99,3 +99,14 @@ canvas {
   width: 900px; */
   border:1px solid black
 }
+
+.link-labels {
+  display: flex;
+  width: 220px;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
