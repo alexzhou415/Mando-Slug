@@ -5,14 +5,18 @@ const Bullet = require("./bullet");
 class Bahamut extends Enemy {
   constructor(options) {
     super(options);
-    this.vel = 20;
-    this.health = 15;
+    this.vel = 18;
+    this.health = 40;
     this.alive = true;
     this.width = 96 * 1.5;
     this.height = 96 * 1.5;
-    this.pos = [this.game.DIM_X - this.width, this.game.DIM_Y - this.height];
+    this.grounded = true;
+    this.falling = false;
+    this.dmg = false;
+    this.heroPos = 0;
+    this.pos = [this.game.DIM_X - this.width + 1, this.game.DIM_Y - this.height];
     this.bahamutSprite = new Image();
-    this.bahamutSprite.src = "./src/sprites/bahamut.png";
+    this.bahamutSprite.src = "../src/sprites/bahamut.png";
   }
 
   draw(ctx) {
@@ -29,6 +33,83 @@ class Bahamut extends Enemy {
     );
   }
 
+  move(delta) {
+    if (this.grounded) {
+      this.heroPos = this.game.hero[0].pos[0];
+      // console.log(this.heroPos + this.pos + this.game.hero.pos);
+      // console.log(this.game)
+      // console.log(this.pos[0]);
+      // console.log(this.heroPos);
+      // if (this.pos[0] >= this.game.DIM_X - 144 && this.dir === "right") {
+      //   this.dir = "left";
+      //   // console.log("poop");
+      // }
+      if (this.pos[0] - this.heroPos > 0) this.dir = "left";
+      else if (this.pos[0] - this.heroPos <= 0) this.dir = "right";
+      this.grounded = false;
+    }
+    // let dirX = 1;
+    else {
+    let dirY = -1;
+    if (this.falling) dirY = 1;
+    let dirX;
+    if (this.dir === "left") dirX = -1;
+    else dirX = 1;
+    const divider = 1000 / 7;
+    const velX = this.vel * (delta / divider);
+    const destX = this.pos[0] + velX * dirX;
+    // const destY = this.pos[1] + velX * dirY;
+    // console.log();
+    // console.log(this.grounded);
+    // console.log("adsfsas");
+    // console.log(destX);
+    // console.log(this.game.DIM_X - this.width);
+    // console.log(this.game.DIM_X)
+    console.log(this.pos[0]);
+    // console.log("heropos");
+    // console.log(this.heroPos);
+    // console.log(this.dir);
+    // console.log(velX);
+    // console.log(this.falling);
+    if (destX <= this.game.DIM_X - this.width && destX >= 0 ) {
+      if ((this.heroPos - this.pos[0] >= -50 && this.heroPos - this.pos[0] <= 50) || this.falling){
+        if (this.heroPos < this.game.DIM_X - 96 ) this.pos[0] = this.heroPos;
+        else this.pos[0] = this.heroPos - 96;
+        // this.pos[0] = this.heroPos - 48;
+        this.falling = true;
+        // console.log("spgaht4ti");
+      }
+      
+      else this.pos[0] = this.pos[0] + velX * dirX;
+      // console.log(destX);
+    }
+    else if (destX > this.game.DIM_X - this.width) {
+      this.pos[0] = this.game.DIM_X - this.width;
+      this.falling = true;
+    }
+
+    if (this.falling) {
+
+      // this.pos[1] = this.pos[1] + velX * dirY;
+      if (this.pos[1] + velX * dirY >= this.game.DIM_Y - this.height) {
+        this.pos[1] = this.game.DIM_Y - this.height;
+        this.falling = false;
+        this.grounded = true;
+      } 
+      
+      
+    } 
+
+    this.pos[1] = this.pos[1] + velX * dirY;
+
+    // if (this.pos[1] >= this.game.DIM_Y - this.height) {
+    //   this.grounded = true;
+    //   this.falling = false;
+    // }
+  }
+
+}
+
   loseHealth() {
     this.health -= 1;
     if (this.health <= 0) this.alive = false;
@@ -36,8 +117,15 @@ class Bahamut extends Enemy {
 
   collideWith(otherObject) {
     if (otherObject instanceof Hero) {
- 
-      otherObject.loseHealth();
+      if (this.dmg) {
+        otherObject.loseHealth();
+        this.dmg = false;
+      }
+
+      else {
+        if (this.falling) this.dmg = true;
+      }
+      
       return true;
     } else if (otherObject instanceof Bullet) {
       this.loseHealth();

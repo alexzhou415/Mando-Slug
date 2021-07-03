@@ -14,13 +14,13 @@ class GameView {
     }
     if (keys["a"] && that.hero.pos[0] > 0) {
       that.hero.moving = true;
-      that.hero.vel = 20;
+      that.hero.vel = 21;
       that.hero.frameY = 1;
       that.hero.dir = "left";
     }
     if (keys["d"] && that.hero.pos[0] < that.game.DIM_X - that.hero.width) {
       that.hero.moving = true;
-      that.hero.vel = 20;
+      that.hero.vel = 21;
       that.hero.frameY = 2;
       that.hero.dir = "right";
     }

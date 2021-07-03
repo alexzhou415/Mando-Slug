@@ -12,7 +12,7 @@ class Enemy extends MovingObject {
     this.pos = [this.game.DIM_X - this.width, this.game.DIM_Y - this.height];
     this.moving = true;
     this.enemySprite = new Image();
-    this.enemySprite.src = "./src/sprites/titan.png";
+    this.enemySprite.src = "../src/sprites/titan.png";
   }
 
   draw(ctx) {
