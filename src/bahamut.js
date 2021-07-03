@@ -65,7 +65,7 @@ class Bahamut extends Enemy {
     // console.log(destX);
     // console.log(this.game.DIM_X - this.width);
     // console.log(this.game.DIM_X)
-    console.log(this.pos[0]);
+    // console.log(this.pos[0]);
     // console.log("heropos");
     // console.log(this.heroPos);
     // console.log(this.dir);
