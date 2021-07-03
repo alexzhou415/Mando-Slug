@@ -18,15 +18,15 @@ class Hero extends MovingObject{
     this.alive = true;
     this.moving = false;
     this.heroSprite = new Image();
-    this.heroSprite.src = "../src/sprites/mandalorian2.png";
+    this.heroSprite.src = "./src/sprites/mandalorian2.png";
     this.gunSpriteRight = new Image();
-    this.gunSpriteRight.src = "../src/sprites/US.png";
+    this.gunSpriteRight.src = "./src/sprites/US.png";
     this.gunSpriteLeft = new Image();
-    this.gunSpriteLeft.src = "../src/sprites/US-flipped.png";
+    this.gunSpriteLeft.src = "./src/sprites/US-flipped.png";
     this.gunSpriteUpRight = new Image();
-    this.gunSpriteUpRight.src = "../src/sprites/US-up.png";
+    this.gunSpriteUpRight.src = "./src/sprites/US-up.png";
     this.gunSpriteUpLeft = new Image();
-    this.gunSpriteUpLeft.src = "../src/sprites/US-flipped-up.png";
+    this.gunSpriteUpLeft.src = "./src/sprites/US-flipped-up.png";
   }
 
   draw(ctx) {

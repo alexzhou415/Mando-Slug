@@ -10,7 +10,7 @@ class Titan extends Enemy {
     this.dir = options.dir;
     this.frameY = options.frameY;
     this.titanSprite = new Image();
-    this.titanSprite.src = "../src/sprites/titan.png";
+    this.titanSprite.src = "./src/sprites/titan.png";
   }
 
   draw(ctx) {

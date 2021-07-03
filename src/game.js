@@ -19,7 +19,7 @@ class Game {
     this.NUM_ENEMIES = 4;
     this.NUM_BOSSES = 1;
     this.background = new Image();
-    this.background.src = "../src/sprites/space-game-background.jpeg";
+    this.background.src = "./src/sprites/space-game-background.jpeg";
     this.won = false;
     this.lost = false;
   }
