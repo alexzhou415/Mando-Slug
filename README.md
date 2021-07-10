@@ -2,7 +2,7 @@
 
 ## Background
 
-Mando Slug is a side-scrolling shooter game where the player must shoot enemies and avoid getting hit by them. The player starts off with 3 lives and loses one each time an enemy hits the player. The default weapon is a pistol, but more effective weapons can be picked up as the player advances through the level. The object of the game is to defeat each boss at the end of the level(s).
+Mando Slug is a side-scrolling shooter game where the player must shoot enemies and avoid getting hit by them. The player starts off with 5 lives and loses one each time an enemy hits the player. 
 
 ## MVPs
 
