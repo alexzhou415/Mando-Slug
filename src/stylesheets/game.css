@@ -97,7 +97,7 @@ p {
 canvas {
   /* height: 600px;
   width: 900px; */
-  border:1px solid black
+  border: 1px solid black
 }
 
 .link-labels {
@@ -109,4 +109,8 @@ canvas {
 a {
   text-decoration: none;
   color: black;
+}
+
+.background {
+  background-image: url(".sprites/stars.jpg");
 }

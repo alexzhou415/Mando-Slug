@@ -179,11 +179,15 @@ class Game {
     if (this.won) {
       const winScreen = document.getElementsByClassName("win-screen")[0];
       winScreen.classList.remove("hidden");
+      // const canvas = document.getElementsByClassName("game-canvas")[0];
+      // canvas.classList.add("hidden");
     }
 
     if (this.lost) {
       const loseScreen = document.getElementsByClassName("lose-screen")[0]
       loseScreen.classList.remove("hidden");
+      // const canvas = document.getElementsByClassName("game-canvas")[0];
+      // canvas.classList.add("hidden");
     }
   }
 
