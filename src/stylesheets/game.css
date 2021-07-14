@@ -108,7 +108,8 @@ p {
 canvas {
   /* height: 600px;
   width: 900px; */
-  border: 1px solid black
+  border: 1px solid black;
+  /* z-index: 50; */
 }
 
 .link-labels {

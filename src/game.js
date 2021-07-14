@@ -184,6 +184,7 @@ class Game {
     }
 
     if (this.lost) {
+      console.log('LOST');
       const loseScreen = document.getElementsByClassName("lose-screen")[0]
       loseScreen.classList.remove("hidden");
       // const canvas = document.getElementById("game-canvas");
@@ -196,13 +197,13 @@ class Game {
   }
 
   step(delta) {
-    
+    if (this.won || this.lost) return;
     this.moveObjects(delta);
     this.checkCollisions();
     this.gameOver();
     this.handleObjectFrame();
     this.addEnemies();
-    if (this.won || this.lost) return;
+    
   }
 }
 

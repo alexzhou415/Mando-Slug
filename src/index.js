@@ -6,45 +6,42 @@ window.MovingObject = MovingObject;
 
 document.addEventListener("DOMContentLoaded", function () {
   const canvas = document.getElementById("game-canvas");
-  let game;
+  let game = new Game();
   canvas.width = 800;
   canvas.height = 500;
   const ctx = canvas.getContext("2d");
-  let gameView;
+  let gameView = new GameView(game, ctx);
 
   const start = document.getElementsByClassName("start-button")[0];
   const title = document.getElementsByClassName("title-screen")[0];
-  const restarts = document.getElementsByClassName("restart");
+  // const restarts = document.getElementsByClassName("restart");
   const endScreens = document.getElementsByClassName("end-game");
 
-  start.addEventListener("click", function () {
-    game = new Game();
-    gameView = new GameView(game, ctx);
-    title.classList.add("hidden");
-
-    gameView.start();
-    // console.log(gameView.game);
-  })
-  // for (i = 0; i < 2; i++){
-  //   console.log(i);
-  //   restarts[i].addEventListener("click", function() {
-  //     console.log(i);
-  //     // console.log(title);
-  //     endScreens[i].classList.add("hidden");
-  //     title.classList.remove("hidden");
-  //   })
-  // }
+  // start.addEventListener("click", function () {
+  //   game = new Game();
+  //   gameView = new GameView(game, ctx);
+  //   title.classList.add("hidden");
+  //   canvas.classList.remove("hidden");
+  //   gameView.start();
+  //   // console.log(gameView.game);
+  // })
 
   document.addEventListener('click', function(e) {
     if (e.target.matches(".restart")) {
-       for (i = 0; i < 2; i++) {
-         console.log(i);
-         endScreens[i].classList.add("hidden");
-        //  endScreens[i].classList.add("sadfasd");
-         console.log(endScreens[i]);
-         title.classList.remove("hidden");
-       }
+      game = new Game();
+      gameView = new GameView(game, ctx);
+      title.classList.remove("hidden");
+      for (i = 0; i < 2; i++) {
+        endScreens[i].classList.add("hidden");
+         
+      }
       //  console.log(endScreens);
+    }
+
+    if (e.target.matches(".start-button")) {
+      
+      title.classList.add("hidden");
+      gameView.start();
     }
   })
   
