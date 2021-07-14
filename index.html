@@ -14,63 +14,72 @@
   <script type="application/javascript" src="./dist/main.js"></script>
 </head>
 <body>
-
+  <img class="stars" src="./src/sprites/stars.jpg" alt="">
+  <!-- <audio controls autoplay muted></audio> -->
   <audio class="song" src="./src/sprites/mando-song.mp3" loop autoplay muted></audio>
-  <div class="background">
-    <div class="ingame-ui">
-      <div class="hero-healthbar">
-        <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
-        <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
-        <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
-        <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
-        <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
-      </div>
-    </div>
+  <!-- <div class="background">
+   
     
-    <div class="win-screen hidden">
-      Congratulations, you have won!
+  </div> -->
+  <div class="ingame-ui">
+    <div class="hero-healthbar">
+      <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
+      <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
+      <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
+      <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
+      <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
     </div>
-    
-    <div class="lose-screen hidden">
-      You lost all your health, better luck next time!
-    </div>
-    
-    <div class="title-screen">
-      <div class="instructions">
-        <p>
-          Use A/D keys to move, W key to aim up, and spacebar to shoot.
-          Avoid enemies and their attacks or you will lose health.
-          Defeat all the enemies to win!
-        </p>
-      </div>
-    
-      <div class="title">
-        Mando Slug
-      </div>
-      <div class="title-controls">
-        <button class="start-button">
-          Start
-        </button>
-        <button class="toggle-music">
-          Toggle Music
-        </button>
-      </div>
-      <div class="links-bar">
-        <div class="link"></div>
-        <div class="link"></div>
-        <div class="link"></div>
-      </div>
-      <div class="link-labels">
-        <div class="label"><a href="https://www.linkedin.com/in/alex-zhou-ba3614148/" target="_blank"><i
-              class="fab fa-linkedin fa-3x"></i></a></div>
-        <div class="label"><a href="https://github.com/alexzhou415" target="_blank"><i
-              class="fab fa-github-square fa-3x"></i></a></div>
-        <div class="label"><a href="https://alexzhou415.github.io/Portfolio/" target="_blank"><i
-              class="fas fa-folder-open fa-3x"></i></a></div>
-      </div>
-    </div>
-    <canvas id="game-canvas"></canvas>
   </div>
+  
+  <div class="win-screen end-game hidden">
+    Congratulations, you have won!
+    <button class="restart">
+      Restart
+    </button>
+  </div>
+  
+  <div class="lose-screen end-game hidden">
+    You lost all your health, better luck next time!
+    <button class="restart">
+      Restart
+    </button>
+  </div>
+  
+  <div class="title-screen">
+    <div class="instructions">
+      <p>
+        Use A/D keys to move, W key to aim up, and spacebar to shoot.
+        Avoid enemies and their attacks or you will lose health.
+        Defeat all the enemies to win!
+      </p>
+    </div>
+  
+    <div class="title">
+      Mando Slug
+    </div>
+    <div class="title-controls">
+      <button class="start-button">
+        Start
+      </button>
+      <button class="toggle-music">
+        Toggle Music
+      </button>
+    </div>
+    <div class="links-bar">
+      <div class="link"></div>
+      <div class="link"></div>
+      <div class="link"></div>
+    </div>
+    <div class="link-labels">
+      <div class="label"><a href="https://www.linkedin.com/in/alex-zhou-ba3614148/" target="_blank"><i
+            class="fab fa-linkedin fa-3x"></i></a></div>
+      <div class="label"><a href="https://github.com/alexzhou415" target="_blank"><i
+            class="fab fa-github-square fa-3x"></i></a></div>
+      <div class="label"><a href="https://alexzhou415.github.io/Portfolio/" target="_blank"><i
+            class="fas fa-folder-open fa-3x"></i></a></div>
+    </div>
+  </div>
+  <canvas id="game-canvas"></canvas>
   
 </body>
 </html>

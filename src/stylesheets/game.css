@@ -1,9 +1,14 @@
+html {
+  /* height: 100%; */
+}
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: 'Press Start 2P', cursive;
   background-color: black;
+  height: 100%;
 }
 
 .title-screen{
@@ -78,6 +83,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .lose-screen {
@@ -88,6 +96,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .hidden {
@@ -112,5 +123,21 @@ a {
 }
 
 .background {
-  background-image: url(".sprites/stars.jpg");
+  /* background-image: url(".sprites/stars.jpg"); */
+  /* height: 100%; */
+}
+
+.stars {
+  position: absolute;
+  z-index: -80;
+}
+
+.restart {
+  border-radius: 4px;
+  background-color: white;
+  border: white;
+  height: 30px;
+  cursor: pointer;
+  position: relative;
+  top: -30px;
 }

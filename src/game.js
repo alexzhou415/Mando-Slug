@@ -28,7 +28,7 @@ class Game {
     if (!this.won && !this.lost){
       
       if (this.killCount <= 40) {
-        // console.log(this.killCount);
+        console.log(this.hero[0].health);
         let currentEnemies = this.enemies.length;
         
         for (let i = currentEnemies; i < this.NUM_ENEMIES; i++) {
@@ -179,14 +179,14 @@ class Game {
     if (this.won) {
       const winScreen = document.getElementsByClassName("win-screen")[0];
       winScreen.classList.remove("hidden");
-      // const canvas = document.getElementsByClassName("game-canvas")[0];
+      // const canvas = document.getElementById("game-canvas");
       // canvas.classList.add("hidden");
     }
 
     if (this.lost) {
       const loseScreen = document.getElementsByClassName("lose-screen")[0]
       loseScreen.classList.remove("hidden");
-      // const canvas = document.getElementsByClassName("game-canvas")[0];
+      // const canvas = document.getElementById("game-canvas");
       // canvas.classList.add("hidden");
     }
   }
@@ -202,7 +202,7 @@ class Game {
     this.gameOver();
     this.handleObjectFrame();
     this.addEnemies();
-    
+    if (this.won || this.lost) return;
   }
 }
 
