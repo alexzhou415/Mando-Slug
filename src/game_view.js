@@ -4,6 +4,8 @@ class GameView {
     this.game = game;
     this.hero = this.game.addHero();
     this.ctx = ctx;
+    // this.id;
+    this.animating;
   }
 
   keydownFunc(e){
@@ -71,10 +73,12 @@ class GameView {
     this.bindKeyHandlers();
     this.lastTime = Date.now();
     this.fpsInterval = 1000/10;
+    this.animating = true;
     requestAnimationFrame(this.animate.bind(this));
   }
-
+  
   animate(time) {
+    // this.id = requestAnimationFrame
     this.now = Date.now();
     const delta = this.now - this.lastTime;
     if (delta > this.fpsInterval){
@@ -82,8 +86,8 @@ class GameView {
       this.game.step(delta);
       this.game.draw(this.ctx);
     }
-
-    requestAnimationFrame(this.animate.bind(this));
+    if (this.game.won || this.game.lost) this.animating = false;
+    if (this.animating) requestAnimationFrame(this.animate.bind(this));
   }
 }
 

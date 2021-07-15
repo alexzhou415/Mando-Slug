@@ -12,10 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const ctx = canvas.getContext("2d");
   let gameView = new GameView(game, ctx);
 
-  const start = document.getElementsByClassName("start-button")[0];
+  // const start = document.getElementsByClassName("start-button")[0];
   const title = document.getElementsByClassName("title-screen")[0];
   // const restarts = document.getElementsByClassName("restart");
   const endScreens = document.getElementsByClassName("end-game");
+  const hearts = document.getElementsByClassName("heart");
+  
 
   // start.addEventListener("click", function () {
   //   game = new Game();
@@ -34,6 +36,9 @@ document.addEventListener("DOMContentLoaded", function () {
       for (i = 0; i < 2; i++) {
         endScreens[i].classList.add("hidden");
          
+      }
+      for (i = 0; i < 5; i++) {
+        hearts[i].classList.remove("hidden");
       }
       //  console.log(endScreens);
     }
