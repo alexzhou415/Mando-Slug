@@ -17,7 +17,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // const restarts = document.getElementsByClassName("restart");
   const endScreens = document.getElementsByClassName("end-game");
   const hearts = document.getElementsByClassName("heart");
-  
+  const song = document.getElementsByClassName("song")[0];
+  song.src = "./src/sprites/mando-song.mp3"
+  song.volume = 0.4;
 
   // start.addEventListener("click", function () {
   //   game = new Game();
@@ -48,13 +50,18 @@ document.addEventListener("DOMContentLoaded", function () {
       title.classList.add("hidden");
       gameView.start();
     }
+
+    if (e.target.matches(".toggle-music")) {
+      song.muted = !song.muted;
+      console.log(song); 
+    }
   })
   
   
-  const song = document.getElementsByClassName("song")[0];
-  song.volume = 0.4;
-  const toggleSong = document.getElementsByClassName("toggle-music")[0];
-  toggleSong.addEventListener("click", function() {
-    song.muted = !song.muted;
-  })
+  
+  // const toggleSong = document.getElementsByClassName("toggle-music")[0];
+  // toggleSong.addEventListener("click", function() {
+  //   song.muted = !song.muted;
+  //   console.log(song); 
+  // })
 });
