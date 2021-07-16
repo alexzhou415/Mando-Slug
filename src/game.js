@@ -28,7 +28,7 @@ class Game {
     if (!this.won && !this.lost){
       
       if (this.killCount <= 40) {
-        console.log(this.hero[0].health);
+        // console.log(this.hero[0].health);
         let currentEnemies = this.enemies.length;
         
         for (let i = currentEnemies; i < this.NUM_ENEMIES; i++) {
@@ -185,7 +185,7 @@ class Game {
     }
 
     if (this.lost) {
-      console.log('LOST');
+      // console.log('LOST');
       const loseScreen = document.getElementsByClassName("lose-screen")[0]
       loseScreen.classList.remove("hidden");
 

@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (e.target.matches(".toggle-music")) {
       song.muted = !song.muted;
-      console.log(song); 
+      // console.log(song); 
     }
   })
   
