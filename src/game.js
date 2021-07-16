@@ -179,6 +179,7 @@ class Game {
     if (this.won) {
       const winScreen = document.getElementsByClassName("win-screen")[0];
       winScreen.classList.remove("hidden");
+      
       // const canvas = document.getElementById("game-canvas");
       // canvas.classList.add("hidden");
     }
@@ -187,6 +188,7 @@ class Game {
       console.log('LOST');
       const loseScreen = document.getElementsByClassName("lose-screen")[0]
       loseScreen.classList.remove("hidden");
+
       // const canvas = document.getElementById("game-canvas");
       // canvas.classList.add("hidden");
     }

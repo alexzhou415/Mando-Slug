@@ -16,7 +16,9 @@
 <body>
   <img class="stars" src="./src/sprites/stars.jpg" alt="">
   <!-- <audio controls autoplay muted></audio> -->
-  <audio class="song" src="./src/sprites/mando-song.mp3" loop autoplay ></audio>
+  <audio class="song" muted loop autoplay >
+    <source src="./src/sprites/mando-song.mp3" type="audio/mpeg">
+  </audio>
   <!-- <div class="background">
    
     
@@ -29,7 +31,7 @@
       <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
       <div class="heart"><img src="./src/sprites//heart.png" alt=""></div>
     </div>
-    <button class="ingame-toggle toggle-music">
+    <button class="ingame-toggle toggle-music hidden">
       Toggle Music
     </button>
   </div>

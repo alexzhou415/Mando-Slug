@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const song = document.getElementsByClassName("song")[0];
   song.src = "./src/sprites/mando-song.mp3"
   song.volume = 0.4;
-
+  const ingame = document.getElementsByClassName("ingame-toggle")[0];
   // start.addEventListener("click", function () {
   //   game = new Game();
   //   gameView = new GameView(game, ctx);
@@ -42,12 +42,14 @@ document.addEventListener("DOMContentLoaded", function () {
       for (i = 0; i < 5; i++) {
         hearts[i].classList.remove("hidden");
       }
+      ingame.classList.add("hidden"); 
       //  console.log(endScreens);
     }
 
     if (e.target.matches(".start-button")) {
       
       title.classList.add("hidden");
+      ingame.classList.remove("hidden");
       gameView.start();
     }
 
